@@ -2,7 +2,7 @@ body {
     background-color: #F3E9DE;
 }
 
-h1 {
+h1, h2 {
     font-family: 'Tilt Neon', cursive, serif;
     color: #256993;
 }
