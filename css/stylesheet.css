@@ -3,7 +3,7 @@ body {
 }
 
 h1, h2 {
-    font-family: 'Tilt Neon', cursive, serif;
+    font-family: 'Golos Text', sans-serif;
     color: #256993;
 }
 
@@ -13,4 +13,28 @@ textarea {
     border-radius: 5px;
     border: 3px solid lightskyblue;
     background-color: #FAF4EC;
+}
+
+/* ------ Buttons ------- */
+button {
+    color: white;
+    font-family: 'Golos Text', sans-serif;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.new-note {
+    background-color: #375F68;
+}
+
+.dark-theme {
+    background-color: #56536A;
+}
+
+.save {
+    background-color: #375F68;
+}
+
+.cancel {
+    background-color: #9B332C;
 }
