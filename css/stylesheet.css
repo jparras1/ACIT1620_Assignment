@@ -6,3 +6,11 @@ h1, h2 {
     font-family: 'Tilt Neon', cursive, serif;
     color: #256993;
 }
+
+textarea {
+    padding: 10px;
+    max-width: 98%;
+    border-radius: 5px;
+    border: 3px solid lightskyblue;
+    background-color: #FAF4EC;
+}
