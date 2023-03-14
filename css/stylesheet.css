@@ -70,9 +70,20 @@ main p {
     margin: 5px;
 }
 
+/* ------ Flex and Grid Layout ------- */
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
 main {
     display: flex;
     flex-direction: column;
+    flex: 1 1 100px;
+}
+
+footer {
+    text-align: center;
 }
 
 section:first-child {
@@ -90,5 +101,3 @@ section:last-child {
     align-self: flex-end;
     margin-top: 10px
 }
-
-/* border: 10px solid black; */
