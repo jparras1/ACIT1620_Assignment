@@ -12,41 +12,61 @@
     <link href="css/stylesheet.css" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <h1>Take Better Notes</h1>
-    </header>
-    <nav>
-      <h1>My Notes</h1>
-    </nav>
-    <main>
-      <button class="new-note" type="button">New Note</button>
-      <button class="dark-theme" type="button">Dark Theme</button>
-      <textarea
-        id="notes"
-        name="story"
-        rows="15"
-        cols="200"
-        placeholder="This is a placeholder"
-      ></textarea>
-      <button class="save" type="button">Save</button>
-      <button class="cancel" type="button">Cancel</button>
-    </main>
-    <footer>
-      <h2>Keep in Touch</h2>
-      <a href="https://ca.linkedin.com" target="_blank"
-        ><img
-          src="images/linkedin-logo.webp"
-          alt="linkedin"
-          width="35"
-          height="35"
-      /></a>
-      <a href="https://www.bcit.ca" target="_blank"
-        ><img
-          src="images/internet-logo.png"
-          alt="internet"
-          width="35"
-          height="35"
-      /></a>
-    </footer>
+    <div class="whole-page">
+      <div class="sidebar">
+        <h1>My Notes</h1>
+        <nav>
+          <ul>
+            <li>note one</li>
+            <li>note two</li>
+          </ul>
+        </nav>
+      </div>
+      <div>
+        <header>
+          <h1>Take Better Notes</h1>
+        </header>
+        <main>
+          <section>
+            <p>About</p>
+            <p>Docs</p>
+          </section>
+          <section>
+            <button class="new-note" type="button">New Note</button>
+            <button class="dark-theme" type="button">Dark Theme</button>
+          </section>
+          <section>
+            <textarea
+              id="notes"
+              name="story"
+              placeholder="This is a placeholder"
+              rows="10"
+              cols="10"
+            ></textarea>
+          </section>
+          <section>
+            <button class="save" type="button">Save</button>
+            <button class="cancel" type="button">Cancel</button>
+          </section>
+        </main>
+        <footer>
+          <h2>Keep in Touch</h2>
+          <a href="https://ca.linkedin.com" target="_blank"
+            ><img
+              src="images/linkedin-logo.webp"
+              alt="linkedin"
+              width="35"
+              height="35"
+          /></a>
+          <a href="https://www.bcit.ca" target="_blank"
+            ><img
+              src="images/internet-logo.png"
+              alt="internet"
+              width="35"
+              height="35"
+          /></a>
+        </footer>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,24 +1,38 @@
 body {
     background-color: #F3E9DE;
-}
-
-h1, h2 {
     font-family: 'Golos Text', sans-serif;
     color: #256993;
+    margin: 0;
 }
 
-textarea {
-    padding: 10px;
-    max-width: 98%;
-    border-radius: 5px;
-    border: 3px solid lightskyblue;
+h1 {
+    text-align: center;
+}
+
+.whole-page {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    column-gap: 10px;
+}
+
+/* -------------------------------- Sidebar ----------------------------------------- */
+.sidebar {
+    height: 100vh;
     background-color: #FAF4EC;
+}
+
+ul {
+    list-style-type: square;
+}
+
+/* -------------------------------- Main Content ----------------------------------------- */
+[class="sidebar"] + div {
+    margin-right: 10px;
 }
 
 /* ------ Buttons ------- */
 button {
     color: white;
-    font-family: 'Golos Text', sans-serif;
     border-radius: 7px;
     padding: 5px;
 }
@@ -38,3 +52,43 @@ button {
 .cancel {
     background-color: #9B332C;
 }
+
+/* ------ Text Area ------- */
+textarea {
+    padding: 10px;
+    /* display: block; */
+    width: 98%;
+    max-width: 100em;
+    max-height: 50vh;
+    border-radius: 5px;
+    border: 3px solid lightskyblue;
+    background-color: #FAF4EC;
+}
+
+main p {
+    display: inline;
+    margin: 5px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+section:first-child {
+    align-self: flex-end;
+    margin: 5px;
+}
+
+section:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+section:last-child {
+    align-self: flex-end;
+    margin-top: 10px
+}
+
+/* border: 10px solid black; */
