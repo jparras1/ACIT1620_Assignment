@@ -3,16 +3,13 @@ body {
     font-family: 'Golos Text', sans-serif;
     color: #256993;
     margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    column-gap: 10px;
 }
 
 h1 {
     text-align: center;
-}
-
-.whole-page {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    column-gap: 10px;
 }
 
 /* -------------------------------- Sidebar ----------------------------------------- */
@@ -30,11 +27,16 @@ ul {
     margin-right: 10px;
 }
 
+main p {
+    display: inline;
+    margin: 5px;
+}
+
 /* ------ Buttons ------- */
 button {
     color: white;
     border-radius: 7px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .new-note {
@@ -65,12 +67,7 @@ textarea {
     background-color: #FAF4EC;
 }
 
-main p {
-    display: inline;
-    margin: 5px;
-}
-
-/* ------ Flex and Grid Layout ------- */
+/* ------ Flex and Grid Layouts ------- */
 .content {
     display: flex;
     flex-direction: column;
@@ -80,10 +77,6 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1 1 100px;
-}
-
-footer {
-    text-align: center;
 }
 
 section:first-child {
@@ -100,4 +93,8 @@ section:nth-child(2) {
 section:last-child {
     align-self: flex-end;
     margin-top: 10px
+}
+
+footer {
+    text-align: center;
 }
