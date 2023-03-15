@@ -2,10 +2,7 @@ body {
     background-color: #F3E9DE;
     font-family: 'Golos Text', sans-serif;
     color: #256993;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    column-gap: 10px;
+    margin: 0 10px 0 10px;
 }
 
 h1 {
@@ -13,8 +10,7 @@ h1 {
 }
 
 /* -------------------------------- Sidebar ----------------------------------------- */
-.sidebar {
-    height: 100vh;
+nav {
     background-color: #FAF4EC;
 }
 
@@ -23,10 +19,6 @@ ul {
 }
 
 /* -------------------------------- Main Content ----------------------------------------- */
-[class="sidebar"] + div {
-    margin-right: 10px;
-}
-
 main p {
     display: inline;
     margin: 5px;
@@ -59,20 +51,19 @@ button {
 textarea {
     padding: 10px;
     /* display: block; */
-    width: 98%;
-    max-width: 100em;
+    width: 95%;
+    max-width: 95%;
     max-height: 50vh;
     border-radius: 5px;
     border: 3px solid lightskyblue;
     background-color: #FAF4EC;
 }
 
-/* ------ Flex and Grid Layouts ------- */
-.content {
-    display: flex;
-    flex-direction: column;
+.wrapper {
+    width: 95vw;
 }
 
+/* ------ Flex and Grid Layouts ------- */
 main {
     display: flex;
     flex-direction: column;
@@ -97,4 +88,28 @@ section:last-child {
 
 footer {
     text-align: center;
+}
+
+/* -------------------------------- Responsive Design ----------------------------------------- */
+@media screen and (min-width:500px) {
+    .wrapper {
+        width: 80vw;
+    }
+    
+    body {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: auto 1fr auto;
+        column-gap: 10px;
+        height: 100vh;
+    }
+
+    nav {
+        grid-column: 1 / 2;
+        grid-row: 1 / 4;
+    }
+
+    main, footer{
+        grid-column: 2 / 3;
+    }
 }
