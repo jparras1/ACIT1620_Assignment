@@ -5,7 +5,7 @@ body {
     margin: 0 10px 0 10px;
 }
 
-h1 {
+h1, footer {
     text-align: center;
 }
 
@@ -50,10 +50,9 @@ button {
 /* ------ Text Area ------- */
 textarea {
     padding: 10px;
-    /* display: block; */
-    width: 95%;
-    max-width: 95%;
-    max-height: 50vh;
+    width: 90vw;
+    max-width: 90vw;
+    max-height: 20vh;
     border-radius: 5px;
     border: 3px solid lightskyblue;
     background-color: #FAF4EC;
@@ -64,6 +63,12 @@ textarea {
 }
 
 /* ------ Flex and Grid Layouts ------- */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -83,17 +88,20 @@ section:nth-child(2) {
 
 section:last-child {
     align-self: flex-end;
-    margin-top: 10px
-}
-
-footer {
-    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* -------------------------------- Responsive Design ----------------------------------------- */
 @media screen and (min-width:500px) {
     .wrapper {
         width: 80vw;
+    }
+
+    textarea {
+        width: 78vw;
+        max-width: 78vw;
+        max-height: 30vh;
     }
     
     body {
@@ -102,6 +110,7 @@ footer {
         grid-template-rows: auto 1fr auto;
         column-gap: 10px;
         height: 100vh;
+        margin-left: 0px;
     }
 
     nav {
