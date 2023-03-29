@@ -18,13 +18,24 @@ function darkMode (event) {
         darkthemeButton.textContent = "Dark Theme";
     }
 }
-
 darkthemeButton.addEventListener("click", darkMode);
 
 let cancelButton = document.querySelector(".cancel");
+let textAreaBox = document.querySelector("textarea");
+let saveButton = document.querySelector(".save");
 
-function hideTextArea (event) {
-    
+function hideTextArea () {
+    textAreaBox.style.display = "none";
+    cancelButton.style.display = "none";
+    saveButton.style.display = "none";
 }
-
 cancelButton.addEventListener("click", hideTextArea)
+
+let newNoteButton = document.querySelector(".new-note");
+
+function showTextArea () {
+    textAreaBox.style.display = "inline";
+    cancelButton.style.display = "inline";
+    saveButton.style.display = "inline";
+}
+newNoteButton.addEventListener("click", showTextArea)
