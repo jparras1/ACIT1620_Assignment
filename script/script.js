@@ -1,17 +1,23 @@
+// target dark theme button
 let darkthemeButton = document.querySelector(".dark-theme");
 
+// function for toggling dark mode
 function darkMode (event) {
+    // target the sidebar and the textarea
     var mySidebar = document.querySelector("body > nav");
     var textArea = document.querySelector("textarea");
 
+    // toggle the dark mode for the sidebar and textarea
     mySidebar.classList.toggle("nav-light-mode");
     mySidebar.classList.toggle("nav-dark-mode");
     textArea.classList.toggle("nav-light-mode");
     textArea.classList.toggle("nav-dark-mode");
     
+    // toggle the dark mode for the body
     document.body.classList.toggle("light-mode");
     document.body.classList.toggle("dark-mode");
 
+    // change the text of the button depending on the current mode
     if (event.target.tagName === "BUTTON" && darkthemeButton.textContent === "Dark Theme") {
         darkthemeButton.textContent = "Light Theme";
     } else {
@@ -20,11 +26,14 @@ function darkMode (event) {
 }
 darkthemeButton.addEventListener("click", darkMode);
 
+// target the cancel and save buttons as well as the textarea
 let cancelButton = document.querySelector(".cancel");
 let textAreaBox = document.querySelector("textarea");
 let saveButton = document.querySelector(".save");
 
+// function for hiding the cancel and save buttons as well as the textarea box
 function hideTextArea () {
+    // toggle the hide and show classes when class button is clicked
     cancelButton.classList.toggle("hide");
     textAreaBox.classList.toggle("hide");
     saveButton.classList.toggle("hide");
@@ -35,9 +44,13 @@ function hideTextArea () {
 }
 cancelButton.addEventListener("click", hideTextArea)
 
+// target the new note button
 let newNoteButton = document.querySelector(".new-note");
 
+// function for new note
 function newNoteFunc () {
+    // if the save and cancel buttons as well as the textarea box are hidden,
+    // pressing the new note button will show them
     if ((cancelButton.classList.contains("hide")) &&
         (textAreaBox.classList.contains("hide")) &&
         (saveButton.classList.contains("hide"))) {
@@ -51,12 +64,16 @@ function newNoteFunc () {
             saveButton.classList.toggle("show");
 
             textAreaBox.value = "This is a placeholder";
-    } else {
+    }
+    // if the new note button is pressed even though the save and cancel as well
+    // as the textarea box is showing, clear the textarea box content
+    else {
         textAreaBox.value = "";
     }
 }
 newNoteButton.addEventListener("click", newNoteFunc)
 
+// create the array for the 'default' notes
 let noteArray = [
     {
         title:"note one",
@@ -68,30 +85,46 @@ let noteArray = [
     }
 ]
 
+// target the sidebar ul list
 let noteList = document.querySelector("nav > ul");
+
+// function for the saving the note
 function addNote () {
+    // if the textarea box has a value, then do the following:
     if (textAreaBox.value !== "") {
+        // prompt the user for the title of the note
         newNoteTitle = prompt("Please enter a title for your note: ");
+        // push the new content to the noteArray
         noteArray.push (
             {
                 title: newNoteTitle,
                 body: textAreaBox.value
             }
         );
+        // create the new li element
         var newList = document.createElement("li");
+        // append the new li element to the ul element
         noteList.appendChild(newList);
+        // create the button element (that's inside the created li)
         newListItem = document.createElement("button");
+        // the new button element will have the text equivalent to the user title
         newListItem.textContent = newNoteTitle;
+        // add the sidebar-button class to the new button
         newListItem.classList.add("sidebar-button");
+        // append the new button element to the new li element
         newList.appendChild(newListItem);
     }
 }
 saveButton.addEventListener("click", addNote)
 
+// function for displaying the note to the textarea box
 function displayNote (event) {
+    // use event.target to take advantage of event bubbling
     if (event.target.tagName === "BUTTON") {
+        // search the noteArray if it matches the clicked note title
         for (let item of noteArray) {
             if (event.target.textContent === item["title"]) {
+                // if the match was found, display the note content to the textarea box
                 textAreaBox.value = item["body"];
             }
         }
