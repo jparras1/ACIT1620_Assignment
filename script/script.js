@@ -50,9 +50,9 @@ function newNoteFunc () {
             textAreaBox.classList.toggle("show");
             saveButton.classList.toggle("show");
 
-            textAreaBox.textContent = "This is a placeholder";
+            textAreaBox.value = "This is a placeholder";
     } else {
-        textAreaBox.textContent = "";
+        textAreaBox.value = "";
     }
 }
 newNoteButton.addEventListener("click", newNoteFunc)
@@ -68,6 +68,7 @@ let noteArray = [
     }
 ]
 
+let noteList = document.querySelector("nav > ul");
 function addNote () {
     if (textAreaBox.value !== "") {
         newNoteTitle = prompt("Please enter a title for your note: ");
@@ -77,11 +78,23 @@ function addNote () {
                 body: textAreaBox.value
             }
         );
-        var noteList = document.querySelector("nav > ul");
         var newList = document.createElement("li");
-        newList.textContent = newNoteTitle;
         noteList.appendChild(newList);
+        newListItem = document.createElement("button");
+        newListItem.textContent = newNoteTitle;
+        newListItem.classList.add("sidebar-button");
+        newList.appendChild(newListItem);
     }
 }
-
 saveButton.addEventListener("click", addNote)
+
+function displayNote (event) {
+    if (event.target.tagName === "BUTTON") {
+        for (let item of noteArray) {
+            if (event.target.textContent === item["title"]) {
+                textAreaBox.value = item["body"];
+            }
+        }
+    }
+}
+noteList.addEventListener("click", displayNote)
