@@ -25,17 +25,34 @@ let textAreaBox = document.querySelector("textarea");
 let saveButton = document.querySelector(".save");
 
 function hideTextArea () {
-    textAreaBox.style.display = "none";
-    cancelButton.style.display = "none";
-    saveButton.style.display = "none";
+    cancelButton.classList.toggle("hide");
+    textAreaBox.classList.toggle("hide");
+    saveButton.classList.toggle("hide");
+
+    cancelButton.classList.toggle("show");
+    textAreaBox.classList.toggle("show");
+    saveButton.classList.toggle("show");
 }
 cancelButton.addEventListener("click", hideTextArea)
 
 let newNoteButton = document.querySelector(".new-note");
 
-function showTextArea () {
-    textAreaBox.style.display = "inline";
-    cancelButton.style.display = "inline";
-    saveButton.style.display = "inline";
+function newNoteFunc () {
+    if ((cancelButton.classList.contains("hide")) &&
+        (textAreaBox.classList.contains("hide")) &&
+        (saveButton.classList.contains("hide"))) {
+
+            cancelButton.classList.toggle("hide");
+            textAreaBox.classList.toggle("hide");
+            saveButton.classList.toggle("hide");
+            
+            cancelButton.classList.toggle("show");
+            textAreaBox.classList.toggle("show");
+            saveButton.classList.toggle("show");
+
+            textAreaBox.textContent = "This is a placeholder";
+    } else {
+        textAreaBox.textContent = "";
+    }
 }
-newNoteButton.addEventListener("click", showTextArea)
+newNoteButton.addEventListener("click", newNoteFunc)

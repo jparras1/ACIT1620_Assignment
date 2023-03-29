@@ -35,6 +35,14 @@ main p {
     margin: 5px;
 }
 
+.show {
+    display: inline;
+}
+
+.hide {
+    display: none;
+}
+
 /* ------ Buttons ------- */
 button {
     color: white;
