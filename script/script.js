@@ -56,3 +56,32 @@ function newNoteFunc () {
     }
 }
 newNoteButton.addEventListener("click", newNoteFunc)
+
+let noteArray = [
+    {
+        title:"note one",
+        body:"this is my first note"
+    },
+    {
+        title:"note two",
+        body: "my second note"
+    }
+]
+
+function addNote () {
+    if (textAreaBox.value !== "") {
+        newNoteTitle = prompt("Please enter a title for your note: ");
+        noteArray.push (
+            {
+                title: newNoteTitle,
+                body: textAreaBox.value
+            }
+        );
+        var noteList = document.querySelector("nav > ul");
+        var newList = document.createElement("li");
+        newList.textContent = newNoteTitle;
+        noteList.appendChild(newList);
+    }
+}
+
+saveButton.addEventListener("click", addNote)
