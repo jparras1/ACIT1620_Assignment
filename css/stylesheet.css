@@ -1,9 +1,6 @@
 body {
     font-family: 'Golos Text', sans-serif;
     margin: 0 10px 0 10px;
-}
-
-.light-mode {
     background-color: #F3E9DE;
     color: #256993;
 }
@@ -18,7 +15,7 @@ h1, footer {
 }
 
 /* -------------------------------- Sidebar ----------------------------------------- */
-.nav-light-mode {
+nav {
     background-color: #FAF4EC;
 }
 .nav-dark-mode {
@@ -35,10 +32,6 @@ main p {
     margin: 5px;
 }
 
-.show {
-    display: inline;
-}
-
 .hide {
     display: none;
 }
@@ -49,12 +42,14 @@ main p {
     border: none;
     font-family: 'Golos Text', sans-serif;
     color: #256993;
+    cursor: pointer;
 }
 
 main button {
     color: white;
     border-radius: 7px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .new-note {
@@ -82,6 +77,11 @@ textarea {
     max-height: 20vh;
     border-radius: 5px;
     border: 3px solid lightskyblue;
+    background-color: #FAF4EC;
+}
+
+.white-font {
+    color: white;
 }
 
 .wrapper {

@@ -1,20 +1,17 @@
 // target dark theme button
-let darkthemeButton = document.querySelector(".dark-theme");
+const darkthemeButton = document.querySelector(".dark-theme");
+// target the sidebar and the textarea
+const mySidebar = document.querySelector("body > nav");
+const textArea = document.querySelector("textarea");
 
 // function for toggling dark mode
 function darkMode (event) {
-    // target the sidebar and the textarea
-    var mySidebar = document.querySelector("body > nav");
-    var textArea = document.querySelector("textarea");
-
     // toggle the dark mode for the sidebar and textarea
-    mySidebar.classList.toggle("nav-light-mode");
     mySidebar.classList.toggle("nav-dark-mode");
-    textArea.classList.toggle("nav-light-mode");
     textArea.classList.toggle("nav-dark-mode");
+    textArea.classList.toggle("white-font");
     
     // toggle the dark mode for the body
-    document.body.classList.toggle("light-mode");
     document.body.classList.toggle("dark-mode");
 
     // change the text of the button depending on the current mode
@@ -27,48 +24,43 @@ function darkMode (event) {
 darkthemeButton.addEventListener("click", darkMode);
 
 // target the cancel and save buttons as well as the textarea
-let cancelButton = document.querySelector(".cancel");
-let textAreaBox = document.querySelector("textarea");
-let saveButton = document.querySelector(".save");
+const cancelButton = document.querySelector(".cancel");
+const saveButton = document.querySelector(".save");
 
 // function for hiding the cancel and save buttons as well as the textarea box
 function hideTextArea () {
     // toggle the hide and show classes when class button is clicked
     cancelButton.classList.toggle("hide");
-    textAreaBox.classList.toggle("hide");
+    textArea.classList.toggle("hide");
     saveButton.classList.toggle("hide");
 
     cancelButton.classList.toggle("show");
-    textAreaBox.classList.toggle("show");
+    textArea.classList.toggle("show");
     saveButton.classList.toggle("show");
 }
 cancelButton.addEventListener("click", hideTextArea)
 
 // target the new note button
-let newNoteButton = document.querySelector(".new-note");
+const newNoteButton = document.querySelector(".new-note");
 
 // function for new note
 function newNoteFunc () {
     // if the save and cancel buttons as well as the textarea box are hidden,
     // pressing the new note button will show them
     if ((cancelButton.classList.contains("hide")) &&
-        (textAreaBox.classList.contains("hide")) &&
+        (textArea.classList.contains("hide")) &&
         (saveButton.classList.contains("hide"))) {
 
             cancelButton.classList.toggle("hide");
-            textAreaBox.classList.toggle("hide");
+            textArea.classList.toggle("hide");
             saveButton.classList.toggle("hide");
-            
-            cancelButton.classList.toggle("show");
-            textAreaBox.classList.toggle("show");
-            saveButton.classList.toggle("show");
 
-            textAreaBox.value = "This is a placeholder";
+            textArea.value = "This is a placeholder";
     }
     // if the new note button is pressed even though the save and cancel as well
     // as the textarea box is showing, clear the textarea box content
     else {
-        textAreaBox.value = "";
+        textArea.value = "";
     }
 }
 newNoteButton.addEventListener("click", newNoteFunc)
@@ -91,28 +83,30 @@ let noteList = document.querySelector("nav > ul");
 // function for the saving the note
 function addNote () {
     // if the textarea box has a value, then do the following:
-    if (textAreaBox.value !== "") {
+    if (textArea.value !== "") {
         // prompt the user for the title of the note
         newNoteTitle = prompt("Please enter a title for your note: ");
-        // push the new content to the noteArray
-        noteArray.push (
-            {
-                title: newNoteTitle,
-                body: textAreaBox.value
-            }
-        );
-        // create the new li element
-        var newList = document.createElement("li");
-        // append the new li element to the ul element
-        noteList.appendChild(newList);
-        // create the button element (that's inside the created li)
-        newListItem = document.createElement("button");
-        // the new button element will have the text equivalent to the user title
-        newListItem.textContent = newNoteTitle;
-        // add the sidebar-button class to the new button
-        newListItem.classList.add("sidebar-button");
-        // append the new button element to the new li element
-        newList.appendChild(newListItem);
+        if (newNoteTitle !== null) {
+            // push the new content to the noteArray
+            noteArray.push (
+                {
+                    title: newNoteTitle,
+                    body: textArea.value
+                }
+            );
+            // create the new li element
+            var newList = document.createElement("li");
+            // append the new li element to the ul element
+            noteList.appendChild(newList);
+            // create the button element (that's inside the created li)
+            newListItem = document.createElement("button");
+            // the new button element will have the text equivalent to the user title
+            newListItem.textContent = newNoteTitle;
+            // add the sidebar-button class to the new button
+            newListItem.classList.add("sidebar-button");
+            // append the new button element to the new li element
+            newList.appendChild(newListItem);
+        }
     }
 }
 saveButton.addEventListener("click", addNote)
@@ -125,7 +119,7 @@ function displayNote (event) {
         for (let item of noteArray) {
             if (event.target.textContent === item["title"]) {
                 // if the match was found, display the note content to the textarea box
-                textAreaBox.value = item["body"];
+                textArea.value = item["body"];
             }
         }
     }
