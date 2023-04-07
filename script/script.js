@@ -38,7 +38,7 @@ function hideTextArea () {
     textArea.classList.toggle("show");
     saveButton.classList.toggle("show");
 }
-cancelButton.addEventListener("click", hideTextArea)
+cancelButton.addEventListener("click", hideTextArea);
 
 // target the new note button
 const newNoteButton = document.querySelector(".new-note");
@@ -63,7 +63,7 @@ function newNoteFunc () {
         textArea.value = "";
     }
 }
-newNoteButton.addEventListener("click", newNoteFunc)
+newNoteButton.addEventListener("click", newNoteFunc);
 
 // create the array for the 'default' notes
 let notesArray = [
@@ -97,7 +97,7 @@ function addNote () {
             // create the new li element
             let newList = document.createElement("li");
             // the new li element will have the text equivalent to the user title
-            newList.textContent = newNoteTitle
+            newList.textContent = newNoteTitle;
             // add the note-list class to the new li
             newList.classList.add("note-list");
             // append the new li element to the ul element
@@ -105,7 +105,7 @@ function addNote () {
         }
     }
 }
-saveButton.addEventListener("click", addNote)
+saveButton.addEventListener("click", addNote);
 
 // function for displaying the note to the textarea box
 function displayNote (event) {
@@ -120,4 +120,4 @@ function displayNote (event) {
         }
     }
 }
-noteList.addEventListener("click", displayNote)
+noteList.addEventListener("click", displayNote);
