@@ -66,7 +66,7 @@ function newNoteFunc () {
 newNoteButton.addEventListener("click", newNoteFunc)
 
 // create the array for the 'default' notes
-let noteArray = [
+let notesArray = [
     {
         title:"note one",
         body:"this is my first note"
@@ -87,25 +87,21 @@ function addNote () {
         // prompt the user for the title of the note
         newNoteTitle = prompt("Please enter a title for your note: ");
         if (newNoteTitle !== null) {
-            // push the new content to the noteArray
-            noteArray.push (
+            // push the new content to the notesArray
+            notesArray.push (
                 {
                     title: newNoteTitle,
                     body: textArea.value
                 }
             );
             // create the new li element
-            var newList = document.createElement("li");
+            let newList = document.createElement("li");
+            // the new li element will have the text equivalent to the user title
+            newList.textContent = newNoteTitle
+            // add the note-list class to the new li
+            newList.classList.add("note-list");
             // append the new li element to the ul element
             noteList.appendChild(newList);
-            // create the button element (that's inside the created li)
-            newListItem = document.createElement("button");
-            // the new button element will have the text equivalent to the user title
-            newListItem.textContent = newNoteTitle;
-            // add the sidebar-button class to the new button
-            newListItem.classList.add("sidebar-button");
-            // append the new button element to the new li element
-            newList.appendChild(newListItem);
         }
     }
 }
@@ -114,9 +110,9 @@ saveButton.addEventListener("click", addNote)
 // function for displaying the note to the textarea box
 function displayNote (event) {
     // use event.target to take advantage of event bubbling
-    if (event.target.tagName === "BUTTON") {
-        // search the noteArray if it matches the clicked note title
-        for (let item of noteArray) {
+    if (event.target.tagName === "LI") {
+        // search the notesArray if it matches the clicked note title
+        for (let item of notesArray) {
             if (event.target.textContent === item["title"]) {
                 // if the match was found, display the note content to the textarea box
                 textArea.value = item["body"];

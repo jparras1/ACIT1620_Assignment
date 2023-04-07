@@ -26,6 +26,9 @@ ul {
     list-style-type: square;
 }
 
+.note-list {
+    cursor: pointer;
+}
 /* -------------------------------- Main Content ----------------------------------------- */
 main p {
     display: inline;
@@ -37,14 +40,6 @@ main p {
 }
 
 /* ------ Buttons ------- */
-.sidebar-button {
-    background: none;
-    border: none;
-    font-family: 'Golos Text', sans-serif;
-    color: #256993;
-    cursor: pointer;
-}
-
 main button {
     color: white;
     border-radius: 7px;
